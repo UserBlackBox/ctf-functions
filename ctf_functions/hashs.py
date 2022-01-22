@@ -1,7 +1,7 @@
 """Module with functions for hashing bytes and strings"""
 
 import hashlib
-from typing import Dict
+from typing import Dict, List
 
 
 def str_md5(data: str) -> str:
@@ -104,6 +104,26 @@ def bytes_sha3_512(data: bytes) -> str:
     return hashlib.sha3_512(data).hexdigest()
 
 
+def str_blake2b(data: str) -> str:
+    """Returns hexadecimal representation of blake2b hashed string"""
+    return hashlib.blake2b(data.encode("utf-8")).hexdigest()
+
+
+def bytes_blake2b(data: bytes) -> str:
+    """Returns hexadecimal representation of blake2b hashed bytes"""
+    return hashlib.blake2b(data).hexdigest()
+
+
+def str_blake2s(data: str) -> str:
+    """Returns hexadecimal representation of blake2s hashed string"""
+    return hashlib.blake2s(data.encode("utf-8")).hexdigest()
+
+
+def bytes_blake2s(data: bytes) -> str:
+    """Returns hexadecimal representation of blake2s hashed bytes"""
+    return hashlib.blake2s(data).hexdigest()
+
+
 def str_all_hashes(data: str) -> Dict[str, str]:
     """Returns a dictionary of hexadecimal representations of all available
     hash algorithms for a given string"""
@@ -118,6 +138,8 @@ def str_all_hashes(data: str) -> Dict[str, str]:
             "sha3_256": str_sha3_256(data),
             "sha3_384": str_sha3_384(data),
             "sha3_512": str_sha3_512(data),
+            "blake2b": str_blake2b(data),
+            "blake2s": str_blake2s(data),
             }
 
 
@@ -135,4 +157,53 @@ def bytes_all_hashes(data: bytes) -> Dict[str, str]:
             "sha3_256": bytes_sha3_256(data),
             "sha3_384": bytes_sha3_384(data),
             "sha3_512": bytes_sha3_512(data),
+            "blake2b": bytes_blake2b(data),
+            "blake2s": bytes_blake2s(data),
             }
+
+
+def analyze_hash(hashhex: str) -> List[str]:
+    """Determines possible algorithms that generated a hash based on its length"""
+    bits = len(hashhex) // 2 * 8
+    algos = {
+            32: [
+                "CRC-32",
+            ],
+            64: [
+                "CRC-64",
+            ],
+            128: [
+                "MD5",
+                "MD4",
+                "MD2",
+            ],
+            160: [
+                "SHA-1",
+            ],
+            224: [
+                "SHA224",
+                "SHA3-224",
+            ],
+            256: [
+                "SHA256",
+                "SHA3-256",
+                "BLAKE-256",
+                "BLAKE2s",
+            ],
+            384: [
+                "SHA384",
+                "SHA3-384",
+            ],
+            512: [
+                "SHA512",
+                "SHA3-512",
+                "BLAKE-512",
+                "BLAKE2b",
+                "MD6",
+                "Whirlpool",
+            ]
+    }
+    if bits not in algos:
+        return []
+    else:
+        return algos[bits]
