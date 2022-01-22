@@ -21,6 +21,6 @@ setup(
         "License :: OSI Approved :: BSD License"
         "Natural Language :: English",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     install_requires=[]
 )
