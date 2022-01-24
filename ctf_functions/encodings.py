@@ -1,6 +1,7 @@
 """Module with functions for manipulating data encodings"""
 
 import base64 as __b64
+import urllib.parse as __ulp
 
 
 def base64_encode(data: bytes) -> str:
@@ -49,3 +50,15 @@ def base16_encode(data: bytes) -> str:
 def base16_decode(data: str) -> bytes:
     """Decode base16 encoded string to bytes data"""
     return __b64.b16decode(data)
+
+
+def url_encode(string: str, escape_all: bool = False) -> str:
+    """Encodes a string to be url safe"""
+    if escape_all:
+        return __ulp.quote(string, safe="")
+    return __ulp.quote(string)
+
+
+def url_decode(string: str) -> str:
+    """Decodes a url escaped string"""
+    return __ulp.unquote(string)
