@@ -20,7 +20,6 @@ def sha1(data: __Union[str, bytes]) -> str:
     return __hashlib.sha1(data).hexdigest()
 
 
-
 def sha224(data: __Union[str, bytes]) -> str:
     """Returns hexadecimal representation of sha224 hashed data"""
     if isinstance(data, str):
