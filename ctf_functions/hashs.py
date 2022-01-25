@@ -3,163 +3,112 @@
 import hashlib as __hashlib
 from typing import Dict as __Dict
 from typing import List as __List
+from typing import Union as __Union
 
 
-def str_md5(data: str) -> str:
-    """Returns hexadecimal representation of md5 hashed string"""
-    return __hashlib.md5(data.encode("utf-8")).hexdigest()
-
-
-def bytes_md5(data: bytes) -> str:
-    """Returns hexadecimal representation of md5 hashed bytes"""
+def md5(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of md5 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.md5(data).hexdigest()
 
 
-def str_sha1(data: str) -> str:
-    """Returns hexadecimal representation of sha1 hashed string"""
-    return __hashlib.sha1(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha1(data: bytes) -> str:
-    """Returns hexadecimal representation of sha1 hashed bytes"""
+def sha1(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha1 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha1(data).hexdigest()
 
 
-def str_sha224(data: str) -> str:
-    """Returns hexadecimal representation of sha224 hashed string"""
-    return __hashlib.sha224(data.encode("utf-8")).hexdigest()
 
-
-def bytes_sha224(data: bytes) -> str:
-    """Returns hexadecimal representation of sha224 hashed bytes"""
+def sha224(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha224 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha224(data).hexdigest()
 
 
-def str_sha256(data: str) -> str:
-    """Returns hexadecimal representation of sha256 hashed string"""
-    return __hashlib.sha256(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha256(data: bytes) -> str:
-    """Returns hexadecimal representation of sha256 hashed bytes"""
+def sha256(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha256 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha256(data).hexdigest()
 
 
-def str_sha384(data: str) -> str:
-    """Returns hexadecimal representation of sha384 hashed string"""
-    return __hashlib.sha384(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha384(data: bytes) -> str:
-    """Returns hexadecimal representation of sha384 hashed bytes"""
+def sha384(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha384 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha384(data).hexdigest()
 
 
-def str_sha512(data: str) -> str:
-    """Returns hexadecimal representation of sha512 hashed string"""
-    return __hashlib.sha512(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha512(data: bytes) -> str:
-    """Returns hexadecimal representation of sha512 hashed bytes"""
+def sha512(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha512 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha512(data).hexdigest()
 
 
-def str_sha3_224(data: str) -> str:
-    """Returns hexadecimal representation of sha3-224 hashed string"""
-    return __hashlib.sha3_224(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha3_224(data: bytes) -> str:
-    """Returns hexadecimal representation of sha3-224 hashed bytes"""
+def sha3_224(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha3-224 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha3_224(data).hexdigest()
 
 
-def str_sha3_256(data: str) -> str:
-    """Returns hexadecimal representation of sha3-256 hashed string"""
-    return __hashlib.sha3_256(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha3_256(data: bytes) -> str:
-    """Returns hexadecimal representation of sha3-256 hashed bytes"""
+def sha3_256(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha3-256 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha3_256(data).hexdigest()
 
 
-def str_sha3_384(data: str) -> str:
-    """Returns hexadecimal representation of sha3-384 hashed string"""
-    return __hashlib.sha3_384(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha3_384(data: bytes) -> str:
-    """Returns hexadecimal representation of sha3-384 hashed bytes"""
+def sha3_384(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha3-384 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha3_384(data).hexdigest()
 
 
-def str_sha3_512(data: str) -> str:
-    """Returns hexadecimal representation of sha3-512 hashed string"""
-    return __hashlib.sha3_512(data.encode("utf-8")).hexdigest()
-
-
-def bytes_sha3_512(data: bytes) -> str:
-    """Returns hexadecimal representation of sha3-512 hashed bytes"""
+def sha3_512(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of sha3-512 hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.sha3_512(data).hexdigest()
 
 
-def str_blake2b(data: str) -> str:
-    """Returns hexadecimal representation of blake2b hashed string"""
-    return __hashlib.blake2b(data.encode("utf-8")).hexdigest()
-
-
-def bytes_blake2b(data: bytes) -> str:
-    """Returns hexadecimal representation of blake2b hashed bytes"""
+def blake2b(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of blake2b hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.blake2b(data).hexdigest()
 
 
-def str_blake2s(data: str) -> str:
-    """Returns hexadecimal representation of blake2s hashed string"""
-    return __hashlib.blake2s(data.encode("utf-8")).hexdigest()
-
-
-def bytes_blake2s(data: bytes) -> str:
-    """Returns hexadecimal representation of blake2s hashed bytes"""
+def blake2s(data: __Union[str, bytes]) -> str:
+    """Returns hexadecimal representation of blake2s hashed data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return __hashlib.blake2s(data).hexdigest()
 
 
-def str_all_hashes(data: str) -> __Dict[str, str]:
+def all_hashes(data: __Union[str, bytes]) -> __Dict[str, str]:
     """Returns a dictionary of hexadecimal representations of all available
-    hash algorithms for a given string"""
+    hash algorithms for given data"""
+    if isinstance(data, str):
+        data = data.encode("utf-8")
     return {
-            "md5": str_md5(data),
-            "sha1": str_sha1(data),
-            "sha224": str_sha224(data),
-            "sha256": str_sha256(data),
-            "sha384": str_sha384(data),
-            "sha512": str_sha512(data),
-            "sha3_224": str_sha3_224(data),
-            "sha3_256": str_sha3_256(data),
-            "sha3_384": str_sha3_384(data),
-            "sha3_512": str_sha3_512(data),
-            "blake2b": str_blake2b(data),
-            "blake2s": str_blake2s(data),
-            }
-
-
-def bytes_all_hashes(data: bytes) -> __Dict[str, str]:
-    """Returns a dictionary of hexadecimal representations of all available
-    hash algorithms for given bytes"""
-    return {
-            "md5": bytes_md5(data),
-            "sha1": bytes_sha1(data),
-            "sha224": bytes_sha224(data),
-            "sha256": bytes_sha256(data),
-            "sha384": bytes_sha384(data),
-            "sha512": bytes_sha512(data),
-            "sha3_224": bytes_sha3_224(data),
-            "sha3_256": bytes_sha3_256(data),
-            "sha3_384": bytes_sha3_384(data),
-            "sha3_512": bytes_sha3_512(data),
-            "blake2b": bytes_blake2b(data),
-            "blake2s": bytes_blake2s(data),
+            "md5": md5(data),
+            "sha1": sha1(data),
+            "sha224": sha224(data),
+            "sha256": sha256(data),
+            "sha384": sha384(data),
+            "sha512": sha512(data),
+            "sha3_224": sha3_224(data),
+            "sha3_256": sha3_256(data),
+            "sha3_384": sha3_384(data),
+            "sha3_512": sha3_512(data),
+            "blake2b": blake2b(data),
+            "blake2s": blake2s(data),
             }
 
 
