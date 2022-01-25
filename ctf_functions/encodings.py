@@ -97,3 +97,15 @@ def from_binary(bin_data: str, delimiter: str = " ") -> bytes:
     data = bin_data.split(delimiter)
     data = [int(byte, 2) for byte in data]
     return bytes(data)
+
+
+def to_decimal(data: __Union[str, bytes], delimiter: str = " ") -> str:
+    """Converts input data to decimal bytes"""
+    if isinstance(data, str):
+        data = data.encode('utf-8')
+    return delimiter.join(map(str, list(data)))
+
+
+def from_decimal(dec_data: str, delimiter: str = " ") -> bytes:
+    """Converts decimal string into bytes object"""
+    return bytes(map(int, dec_data.split(delimiter)))
